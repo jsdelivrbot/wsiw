@@ -4,10 +4,10 @@ import GoogleMap from '../components/google_map';
 import Chart from '../components/chart';
 
 class WeatherList extends Component {
-  renderWeather(cityData){
+  renderWeather(cityData) {
     const name = cityData.city.name;
     //Convert the temps from K to F
-    const temps = cityData.list.map(weather => (weather.main.temp*(9/5)-459.67));
+    const temps = cityData.list.map(weather => (weather.main.temp * (9/5) - 459.67));
     const pressures = cityData.list.map(weather => weather.main.pressure);
     const humidities = cityData.list.map(weather => weather.main.humidity);
     const { lon, lat } = cityData.city.coord;
@@ -23,7 +23,7 @@ class WeatherList extends Component {
   }
 
   render() {
-    return(
+    return (
       <table className="table table-hover">
         <thead>
           <tr>
@@ -41,8 +41,8 @@ class WeatherList extends Component {
   }
 }
 
-function mapStateToProps ({weather}) {
-  return {weather};
+function mapStateToProps({ weather }) {
+  return { weather };
 }
 
 export default connect(mapStateToProps)(WeatherList);
